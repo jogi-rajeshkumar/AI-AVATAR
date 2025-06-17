@@ -1,7 +1,7 @@
 
 # 🤖 AI Avatar: Emotionally Intelligent Digital Being with Real-Time Knowledge 🌐💡
 
-![AI Avatar Banner](screenshots/banner.jpg)
+<!-- ![AI Avatar Banner](screenshots/banner.jpg) -->
 
 ## 🚀 Vision
 
