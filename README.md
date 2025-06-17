@@ -123,22 +123,13 @@
 **Week 12: Project Wrap-up & Final Presentation**
 - Complete documentation & demo video  
 - Prepare for final project presentation  
-"""
 
-# Load original readme and add detailed timeline
-with open("/mnt/data/README.md", "r") as file:
-    original_readme = file.read()
-
-updated_readme = original_readme.replace(
-    "## 📅 Development Timeline (12 Weeks)\n\n| Phase | Milestone |",
-    detailed_timeline.strip()
-)
 ---
 
-## 🎥 Demo Preview
+<!-- ## 🎥 Demo Preview
 
 📽️ Watch our upcoming prototype walkthrough on YouTube:  
-[![Demo Video](https://img.youtube.com/vi/DEMO_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=DEMO_VIDEO_ID)
+[![Demo Video](https://img.youtube.com/vi/DEMO_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=DEMO_VIDEO_ID) -->
 
 ---
 
@@ -151,9 +142,9 @@ updated_readme = original_readme.replace(
 
 > 🙏 **With your support, this prototype could define the future of digital interaction.**
 
----
+<!-- --- -->
 
-## 📂 Project Structure (WIP)
+<!-- ## 📂 Project Structure (WIP)
 
 ```plaintext
 ├── backend/
@@ -169,7 +160,7 @@ updated_readme = original_readme.replace(
 ├── Dockerfile
 ├── README.md
 └── roadmap.md
-```
+``` -->
 
 ---
 
@@ -177,8 +168,8 @@ updated_readme = original_readme.replace(
 
 Interested in sponsoring or collaborating?
 
-📧 Email: [ai.avatar.lab@gmail.com](mailto:ai.avatar.lab@gmail.com)  
-💼 LinkedIn: [linkedin.com/company/ai-avatar-lab](https://linkedin.com/company/ai-avatar-lab)
+📧 Email: [rajeshkumarjogi.2098@gmail.com](mailto:rajeshkumarjogi.2098@gmail.com)  
+<!-- 💼 LinkedIn: [linkedin.com/company/ai-avatar-lab](https://linkedin.com/company/ai-avatar-lab) -->
 
 ---
 
