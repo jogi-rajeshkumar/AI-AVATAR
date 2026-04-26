@@ -3,6 +3,91 @@
 
 <!-- ![AI Avatar Banner](screenshots/banner.jpg) -->
 
+---
+
+## 🚀 Prototype Quickstart
+
+A fully runnable prototype combining voice input, emotion detection, web search retrieval, LLM responses, and TTS — all in a browser UI.
+
+### Prerequisites
+
+- **Docker & Docker Compose** (recommended) _or_ Python 3.10+ and Node.js 18+
+- No API keys required — the app runs in demo mode with DuckDuckGo search and a mock LLM
+
+### Option 1 — Docker Compose (easiest)
+
+```bash
+# Clone & enter the repo
+git clone https://github.com/jogi-rajeshkumar/AI-AVATAR.git
+cd AI-AVATAR
+
+# Copy env template (edit to add optional API keys)
+cp .env.example .env
+
+# Start everything
+docker-compose up --build
+```
+
+Open **http://localhost:5173** in your browser.
+
+### Option 2 — Local dev (no Docker)
+
+```bash
+# Backend
+python3 -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install -r backend/requirements.txt
+cp .env.example backend/.env
+cd backend && uvicorn main:app --reload --port 8000
+
+# Frontend (separate terminal)
+cd frontend
+npm install
+npm run dev
+```
+
+Open **http://localhost:5173**.
+
+### Optional API Keys
+
+Edit `.env` to enable premium providers:
+
+| Variable | Effect |
+|---|---|
+| `OPENAI_API_KEY` | Uses GPT-3.5/4 instead of the mock LLM |
+| `SERPAPI_API_KEY` | Uses Google search instead of DuckDuckGo |
+| `TTS_ENGINE=pyttsx3` | Offline TTS (install espeak on Linux) |
+| `STT_ENGINE=whisper` | Local Whisper STT (requires `pip install openai-whisper`) |
+
+### Architecture
+
+```
+Browser (Vite + React)
+  │
+  ├── 🎙 Mic → POST /api/stt  → Whisper / text fallback
+  ├── 💬 Chat → POST /api/chat → LLM + DuckDuckGo + Emotion
+  └── 🔊 TTS  ← POST /api/tts ← gTTS / browser SpeechSynthesis
+
+Backend (FastAPI)
+  ├── providers/stt.py     Whisper | faster-whisper | noop
+  ├── providers/llm.py     OpenAI  | MockLLM
+  ├── providers/search.py  SerpAPI | DuckDuckGo
+  ├── providers/emotion.py transformers | VADER | heuristic
+  └── providers/tts.py     gTTS | pyttsx3 | noop
+```
+
+### Makefile shortcuts
+
+```bash
+make setup       # create venv + install all deps
+make backend     # run FastAPI dev server
+make frontend    # run Vite dev server
+make docker-up   # docker-compose up --build
+make docker-down # docker-compose down
+```
+
+---
+
 ## 🚀 Vision
 
 **AI Avatar** is an experimental project pushing the boundaries of emotionally aware AI, combining advanced **NLP**, **speech technologies**, **emotion detection**, and **facial animation** into a hyper-realistic virtual being. This prototype is built to understand, respond, and connect — like a human.
